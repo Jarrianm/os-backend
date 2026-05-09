@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_09_075705) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_09_231637) do
   create_table "products", force: :cascade do |t|
     t.json "category", default: {}
     t.datetime "created_at", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_09_075705) do
     t.integer "external_id"
     t.json "images", default: []
     t.integer "price"
+    t.json "sizes", default: []
     t.string "slug"
     t.string "title"
     t.datetime "updated_at", null: false
