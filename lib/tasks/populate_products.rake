@@ -6,6 +6,7 @@ namespace :db do
 
     if response.success?
       data = JSON.parse(response.body)
+      SIZES = [ "xs", "s", "m", "l" ]
 
       data.each do |item|
           Product.find_or_initialize_by(external_id: item["id"]).tap do |p|
@@ -14,6 +15,7 @@ namespace :db do
             p.description = item["description"]
             p.category    = item["category"]
             p.images      = item["images"]
+            p.sizes       = SIZES.map { |size| { size: size, quantity: rand(1..10) } }
             p.save
         end
       end
