@@ -15,6 +15,6 @@ Product.where("category->>'name' = ?", "Shoes").find_each do |product|
   product.update!(sizes: shoe_sizes)
 end
 
-Product.where("category->>'name' IN (?)", ["Electronics", "Furniture", "Miscellaneous"]).find_each do |product|
+Product.where("category->>'name' IN (?)", [ "Electronics", "Furniture", "Miscellaneous" ]).find_each do |product|
   product.update!(sizes: [])
 end
